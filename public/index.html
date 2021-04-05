@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script>
+      const baseUnit = 32;
+
+      const setRem = function () {
+        const scale = document.documentElement.clientWidth / 750
+
+        document.documentElement.style.fontSize = baseUnit * Math.min(scale, 2) + 'px'
+      }
+      setRem()
+      window.onresize = function () {
+        setRem()
+      }
+    </script>
   </head>
   <body>
     <noscript>
