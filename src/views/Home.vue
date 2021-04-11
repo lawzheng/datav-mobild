@@ -3,6 +3,11 @@
     <div class="datav-wrapper">
       <top-header/>
       <sales-bar :data="data"/>
+      <sales-line :data="data"/>
+      <sales-pie :data="data"/>
+      <sales-map/>
+      <sales-sun :data="data"/>
+      <sales-radar :data="data"/>
     </div>
   </div>
   <div class="home" v-else>
@@ -11,15 +16,25 @@
 </template>
 
 <script>
+import { getScreenMobileData } from '../api'
 import TopHeader from '../components/TopHeader/index'
 import SalesBar from '../components/SalesBar/index'
-import { getScreenMobileData } from '../api'
+import SalesLine from '../components/SalesLine/index'
+import SalesPie from '../components/SalesPie/index'
+import SalesMap from '../components/SalesMap/index'
+import SalesSun from '../components/SalesSun/index'
+import SalesRadar from '../components/SalesRadar/index'
 
 export default {
   name: 'Home',
   components: {
+    SalesRadar,
+    SalesSun,
+    SalesMap,
+    SalesPie,
     SalesBar,
-    TopHeader
+    TopHeader,
+    SalesLine
   },
   data () {
     return {
